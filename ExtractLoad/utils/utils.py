@@ -93,7 +93,6 @@ def get_data(url):
     data_df = pd.read_csv(url, na_values=["nan", "n.a", "not available", "?", "NAN"])
     return data_df
 
-
-
+print("this is successful")
 
 
