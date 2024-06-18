@@ -1,4 +1,4 @@
-import pandasas pd
+import pandas as pd
 
 
 class FeatureEngineering:
@@ -6,7 +6,7 @@ class FeatureEngineering:
     def __init__(self,df):
         self.df = df
 
-    def extractDayMotnYear(self):
+    def extractDayMonthYear(self):
         """
 
 
