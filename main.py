@@ -1,16 +1,31 @@
-# This is a sample Python script.
+from ExtractLoad import extract_main
+from FE.utils.utils import FeatureEngineering
+from general_utils import load_yaml
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+##### Extract ##############
+
+params = load_yaml("param.yaml")
+
+bucket = params["s3_params"]["bucket_name"]
+Key = params["s3_params"]["Key"]
+filename = params["s3_params"]["file_name"]
+url = load_yaml("param.yaml")["url"]
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+extract_main.get_and_write_to_s3(bucket_name=bucket, key = Key, url=url, filename=filename)
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+extract_main.get_and_write_to_s3(bucket_name=bucket, key = Key)
+
+
+#### Transform #######
+
+# Load the dataframe that you wrote to s3
+df =
+transform = FeatureEngineering(df)
+transform.run_process()
+# w,rite back to s3
+
+
+#### Model
